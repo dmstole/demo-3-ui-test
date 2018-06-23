@@ -1,0 +1,52 @@
+<% layout('../layout') -%>
+
+            <!-- Grid -->
+            <table id="grid" class="table table-bordered">
+               <thead>
+                  <tr>
+                     <th width="50px" class="text-center">
+                        <a id="btn-new" class="btn btn-xs btn-success" href='/cliente'>
+                           <i class='fa fa-plus-circle'></i>
+                        </a>
+                     </th>
+                     <th>Nome</th>
+                     <th>Logradouro</th>
+                     <th>Número</th>
+                     <th>Bairro</th>
+                     <th>Cidade</th>
+                     <th>Estado</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% data.forEach(function(row) { %>
+                  <tr>
+                     <td>
+                        <a href='#' class='btn btn-xs btn-default dropdown-toggle' data-toggle='dropdown'>
+                           <i class='fa fa-bars'></i> <b class='caret'></b>
+                        </a>
+                        <ul class='dropdown-menu' style='top:auto;left:auto;'>
+                           <li>
+                              <a href='/clientes/<%=row.id%>'>
+                                 <i class='fa fa-edit'></i> Edição
+                              </a>
+                           </li>
+                        </ul>
+                     </td>
+                     <td><%=row.nome%></td>
+                     <td><%=row.logradouro%></td>
+                     <td><%=row.numero%></td>
+                     <td><%=row.bairro%></td>
+                     <td><%=row.cidade%></td>
+                     <td><%=row.estado%></td>
+                  </tr>
+                  <% }) %>
+
+                  <% if(!data) { %>
+                  <tr>
+                     <td colspan="<%=(header.length + 1)%>"> Não existem dados encontrados. </td>
+                  </tr>
+                  <% } %>
+
+               </tbody>
+            </table>
+            <!-- Grid -->
