@@ -4,7 +4,7 @@ describe('cadastro de cliente', () => {
 
    const ClientePo = require('./cliente.po')();
 
-   beforeEach(function (done) {
+   beforeEach(done => {
       driver = new webdriver.Builder()
          .forBrowser('chrome')
          .build();
@@ -13,14 +13,14 @@ describe('cadastro de cliente', () => {
       done();
    });
 
-   afterEach(function (done) {
+   afterEach(done => {
       driver.quit();
       done();
    });
 
-   describe('Cria novo cliente', function () {
+   describe('Cria novo cliente', () => {
 
-      it('cadastre novo cliente e visualize mensagem de sucesso', function (done) {
+      it('cadastre novo cliente e visualize mensagem de sucesso', done => {
 
          driver.get("http://localhost:3000/cliente")
             .then(() => ClientePo.digitaCampo("nome", "Diogo A. Miranda"))
@@ -36,7 +36,7 @@ describe('cadastro de cliente', () => {
             .catch(err => done(err));
       });
 
-      it('cadastre novo cliente e visualize mensagem de erro', function (done) {
+      it('cadastre novo cliente e visualize mensagem de erro', done => {
 
          driver.get("http://localhost:3000/cliente")
             .then(() => ClientePo.digitaCampo("nome", "Diogo A. Miranda"))

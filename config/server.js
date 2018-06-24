@@ -5,8 +5,14 @@ module.exports = function () {
    const bodyParser = require('body-parser');
 
    const app = express();
+
+   const config = require('./config');
+   app.config = config;
+
+   const datasource = require('./datasource');
+   app.datasource = datasource(app);
    
-   app.use(bodyParser.urlencoded({ extended: true }));
+   app.use(bodyParser.urlencoded({ extended: false }));
    app.use(bodyParser.json());
    app.use(cookieParser());
 

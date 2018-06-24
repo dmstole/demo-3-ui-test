@@ -18,12 +18,12 @@ module.exports = function () {
 
       static verificaMensagemSucesso() {
          return driver.findElement(By.id("mensagem")).getText()
-            .then(text => expect(text).to.be.eql("Operação realizada com sucesso"));
+            .then(text => expect(text).to.be.eql("Criação realizada com sucesso."));
       }
 
       static verificaMensagemErro() {
          return driver.findElement(By.id("mensagem")).getText()
-            .then(text => expect(text).to.be.eql("Ocorreu erro nessa operação"));
+            .then(text => expect(text).to.be.eql("Ocorreu erro ao realizar essa operação."));
       }
 
    }

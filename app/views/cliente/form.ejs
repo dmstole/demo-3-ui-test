@@ -19,17 +19,28 @@
                               <i class="fa fa-save"></i>
                               Salvar
                            </button>
-                           <a id="btn-cancela" class="btn btn-default">
+                           <a id="btn-cancela" class="btn btn-default" href="/cliente">
                               <i class="fa fa-ban"></i>
                               Cancelar
                            </a>
                         </div>
                      </div>
 
-                     <%if(mensagem) {%> <br><br> <div class="col-sm-12">
-                        <div id="mensagem" class="alert alert-<%=mensagem.status%>" role="alert">
-                           <%=mensagem.descricao%>
+                     <% if(mensagem && mensagem.descricao) { %> <br><br> <div class="col-sm-12">
+                        <div class="alert alert-<%=mensagem.status%>" role="alert">
+                           <div id="mensagem"><%=mensagem.descricao%></div>
+                           <% if(mensagem.validacoes) { %>
+                           <hr>
+                           Campos obrigatórios:
+                           <div class="clearfix"></div>
+                           <ul>
+                              <% mensagem.validacoes.forEach(function(item) { %>
+                              <li><%=item%></li>
+                              <% }); %>
+                           </ul>
+                           <% } %>
                         </div>
+
                      </div><% } %>
 
                      <div class="col-sm-4">
@@ -57,7 +68,7 @@
                      <div class="col-sm-4">
                         <div class="form-group">
                            <label for="numero">Número:</label>
-                           <input type="text" class="form-control" name="numero" id="numero" value="<%= model.numero %>" />
+                           <input type="number" class="form-control" name="numero" id="numero" value="<%= model.numero %>" />
                         </div>
                      </div>
 
