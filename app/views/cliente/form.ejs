@@ -1,103 +1,102 @@
 <% layout('../layout') -%>
 
-         <div class="container">
+   <div class="container">
 
-            <div class="panel panel-default">
+      <div class="panel panel-default">
 
-               <div class="panel-heading">
-                  <h1>Cadastro de Cliente</h1>
+         <div class="panel-heading">
+            <h1>Cadastro de Cliente</h1>
+         </div>
+      
+         <div class="panel-body">
+
+            <!-- FORM PAGE -->
+            <form action="/cliente" method="post" class="row">
+
+               <div class="col-sm-12">
+                  <div class="pull-right">
+                     <button type="submit" id="btn-salva" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                        Salvar
+                     </button>
+                     <a id="btn-cancela" class="btn btn-default" href="/cliente">
+                        <i class="fa fa-ban"></i>
+                        Cancelar
+                     </a>
+                  </div>
                </div>
-            
-               <div class="panel-body">
-
-                  <!-- FORM PAGE -->
-                  <form action="/cliente" method="post" class="row">
-
-                     <div class="col-sm-12">
-                        <div class="pull-right">
-                           <button type="submit" id="btn-salva" class="btn btn-primary">
-                              <i class="fa fa-save"></i>
-                              Salvar
-                           </button>
-                           <a id="btn-cancela" class="btn btn-default" href="/cliente">
-                              <i class="fa fa-ban"></i>
-                              Cancelar
-                           </a>
-                        </div>
-                     </div>
-
-                     <% if(mensagem && mensagem.descricao) { %> <br><br> <div class="col-sm-12">
-                        <div class="alert alert-<%=mensagem.status%>" role="alert">
-                           <div id="mensagem"><%=mensagem.descricao%></div>
-                           <% if(mensagem.validacoes) { %>
-                           <hr>
-                           Campos obrigatórios:
-                           <div class="clearfix"></div>
-                           <ul>
-                              <% mensagem.validacoes.forEach(function(item) { %>
-                              <li><%=item%></li>
-                              <% }); %>
-                           </ul>
-                           <% } %>
-                        </div>
-
-                     </div><% } %>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="codigo">Código:</label>
-                           <input type="text" class="form-control" name="codigo" id="codigo" value="<%= model.id %>" disabled />
-                           <input type="hidden" class="form-control" name="id" id="id" value="<%= model.id %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="nome">Nome:</label>
-                           <input type="text" class="form-control" name="nome" id="nome" maxlength="200" value="<%= model.nome %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="logradouro">Logradouro:</label>
-                           <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="200" value="<%= model.logradouro %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="numero">Número:</label>
-                           <input type="number" class="form-control" name="numero" id="numero" value="<%= model.numero %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="bairro">Bairro:</label>
-                           <input type="text" class="form-control" name="bairro" id="bairro" maxlength="200" value="<%= model.bairro %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="cidade">Cidade:</label>
-                           <input type="text" class="form-control" name="cidade" id="cidade" maxlength="200" value="<%= model.cidade %>" />
-                        </div>
-                     </div>
-
-                     <div class="col-sm-4">
-                        <div class="form-group">
-                           <label for="estado">Estado:</label>
-                           <input type="text" class="form-control" name="estado" id="estado" maxlength="2" value="<%= model.estado %>" />
-                        </div>
-                     </div>
-
-                  </form>
-                  <!-- FORM PAGE -->
-
+               <% if(mensagem && mensagem.descricao) { %> 
+               <br><br> <div class="col-sm-12">
+                  <div class="alert alert-<%=mensagem.status%>" role="alert">
+                     <div id="mensagem"><%=mensagem.descricao%></div>
+                     <% if(mensagem.validacoes) { %>
+                     <hr>
+                     Campos obrigatórios:
+                     <div class="clearfix"></div>
+                     <ul>
+                        <% mensagem.validacoes.forEach(function(item) { %>
+                        <li><%=item%></li>
+                        <% }); %>
+                     </ul>
+                     <% } %>
+                  </div>
+               </div>
+               <% } %>
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="codigo">Código:</label>
+                     <input type="text" class="form-control" name="codigo" id="codigo" value="<%= model.id %>" disabled />
+                     <input type="hidden" class="form-control" name="id" id="id" value="<%= model.id %>" />
+                  </div>
                </div>
 
-            </div>
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="nome">Nome:</label>
+                     <input type="text" class="form-control" name="nome" id="nome" maxlength="200" value="<%= model.nome %>" />
+                  </div>
+               </div>
+
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="logradouro">Logradouro:</label>
+                     <input type="text" class="form-control" name="logradouro" id="logradouro" maxlength="200" value="<%= model.logradouro %>" />
+                  </div>
+               </div>
+
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="numero">Número:</label>
+                     <input type="number" class="form-control" name="numero" id="numero" value="<%= model.numero %>" />
+                  </div>
+               </div>
+
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="bairro">Bairro:</label>
+                     <input type="text" class="form-control" name="bairro" id="bairro" maxlength="200" value="<%= model.bairro %>" />
+                  </div>
+               </div>
+
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="cidade">Cidade:</label>
+                     <input type="text" class="form-control" name="cidade" id="cidade" maxlength="200" value="<%= model.cidade %>" />
+                  </div>
+               </div>
+
+               <div class="col-sm-4">
+                  <div class="form-group">
+                     <label for="estado">Estado:</label>
+                     <input type="text" class="form-control" name="estado" id="estado" maxlength="2" value="<%= model.estado %>" />
+                  </div>
+               </div>
+
+            </form>
+            <!-- FORM PAGE -->
 
          </div>
+
+      </div>
+
+   </div>
